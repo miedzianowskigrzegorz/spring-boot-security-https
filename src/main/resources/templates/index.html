@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+/api/admin - admin panel
+<a th:href="@{/api/admin}">here</a><br>
+
+/api/admin/user-form - new user
+<a th:href="@{/api/admin/user-form}">here</a><br>
+
+/api/admin/users-list - users list
+<a th:href="@{/api/admin/users-list}">here</a><br>
+
+/api/admin/user-delete/{id} - delete user<br>
+
+/api/users/profile-json - profile (JSON)
+<a th:href="@{/api/users/profile-json}">here</a><br>
+
+/api/users/profile - profile
+<a th:href="@{/api/users/profile}">here</a><br>
+
+
+
+
+<div th:insert="logout.html :: logout-button"></div>
+</body>
+</html>

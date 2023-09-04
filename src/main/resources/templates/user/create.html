@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User Form</title>
+</head>
+<body>
+<h2>User Form</h2>
+<form th:action="@{/api/admin/user-submit}" th:object="${user}" method="post">
+  <label for="email">Email:</label>
+  <input type="text" id="email" th:field="*{email}" />
+
+  <label for="password">Password:</label>
+  <input type="text" id="password" th:field="*{password}" />
+
+  <label for="repeatedPassword">Repeat password:</label>
+  <input type="text" id="repeatedPassword" th:field="*{repeatedPassword}" />
+
+  <label for="role">Role:</label>
+  <select id="role" th:field="*{role}">
+    <option value="ADMIN">Admin</option>
+    <option value="USER">User</option>
+  </select>
+
+  <div th:if="${#fields.hasErrors()}">
+    <div class="alert alert-danger">
+      <ul>
+        <li th:each="error : ${#fields.errors('*')}">
+          <span th:text="${error}"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <input type="submit" value="Save" />
+</form>
+</body>
+</html>
